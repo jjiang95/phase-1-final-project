@@ -8,16 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchText}`)
         .then(resp => resp.json())
         .then(json => {
-            json.drinks.forEach(drink => {
-                let name = document.createElement("h2");
-                name.textContent = drink.strDrink;
-                document.querySelector("#gallery").appendChild(name)
-            })
+            json.drinks.forEach(drink => createCard(drink))
         })
-        form.reset();
+        // form.reset();
     })
 })
 
-function createCard() {
-    
+function createCard(drink) {
+    let name = document.createElement("h2");
+    name.textContent = drink.strDrink;
+    let instructions = document.createElement("p");
+    instructions.textContent = drink.strInstructions;
+    document.querySelector("#gallery").prepend(name)
+    name.appendChild(instructions);
+
 }
