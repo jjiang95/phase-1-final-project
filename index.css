@@ -2,36 +2,49 @@
     text-align:center;
 }
 
+body {
+    margin:0;
+    padding:0;
+}
+
 .card {
     border-style:solid;
-    margin-left:28px;
+    /* margin-left:28px;
     margin-bottom:20px;
-    margin-top:20px;
-    padding:20px;
+    margin-top:20px; */
+    position:relative;
+    margin:20px;
     width:300px;
     height:400px;
-    float:left;
     background-size:cover;
     transform-style:preserve-3d;
     transition:all 0.8s ease;
     border-radius:20px;
-    padding:50px, 0;
+    box-shadow:0 5px 18px rgba(0, 0, 0, 0.6);
+    display:inline-block;
+
 }
 
 .card h1 {
     color:white;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: black;
     font-family:Century Gothic;
-    font-size:50px;
+    font-size:40px;
 }
 
 .card p {
     font-size:16px;
     font-family:Century Gothic;
+    font-weight:bold;
+    color:white;
+    width:270px;
+    margin:auto;
+    text-shadow: 1.5px 1.5px red;
 }
 
 .front {
+    transform:rotateX(0deg);
     backface-visibility:hidden;
 }
 
