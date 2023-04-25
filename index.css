@@ -6,12 +6,24 @@
     background-color: rgb(213, 67, 130);
     margin-left:28px;
     margin-bottom:20px;
+    margin-top:20px;
     padding:20px;
     width:300px;
     height:400px;
     float:left;
+    transform-style:preserve-3d;
+    transition:all 0.8s ease;
 }
 
-#gallery {
-    background-color: rgb(230, 141, 81);
+.front {
+    backface-visibility:hidden;
+}
+
+.back {
+    backface-visibility:hidden;
+    transform:rotateY(180deg);
+}
+
+.flipCard {
+    transform:rotateY(180deg);
 }
