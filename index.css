@@ -3,7 +3,7 @@
 }
 
 .card {
-    background-color: rgb(213, 67, 130);
+    border-style:solid;
     margin-left:28px;
     margin-bottom:20px;
     margin-top:20px;
@@ -11,8 +11,15 @@
     width:300px;
     height:400px;
     float:left;
+    background-size:cover;
     transform-style:preserve-3d;
     transition:all 0.8s ease;
+    border-radius:20px;
+}
+
+h2,
+p {
+    color:white;
 }
 
 .front {
@@ -26,4 +33,9 @@
 
 .flipCard {
     transform:rotateY(180deg);
+}
+
+img {
+    width:300px;
+    position:absolute;
 }

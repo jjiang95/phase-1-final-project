@@ -15,8 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function createCard(drink) {
-    let card = document.createElement("div")
+    const card = document.createElement("div")
     card.classList.add("card");
+    card.style.backgroundImage = `url(${drink.strDrinkThumb})`
     let name = document.createElement("h2");
     name.textContent = drink.strDrink;
     let instructions = document.createElement("p");
@@ -30,7 +31,7 @@ function createCard(drink) {
     let cardBack = document.createElement("div")
     cardBack.classList.add("back");
     cardBack.appendChild(instructions)
-    card.appendChild(cardFront)
+    card.appendChild(cardFront);
     card.appendChild(cardBack);
     //Add event listener to flip card when clicked
     card.addEventListener("click", () => {
