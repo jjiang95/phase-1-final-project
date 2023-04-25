@@ -18,21 +18,31 @@ function createCard(drink) {
     const card = document.createElement("div")
     card.classList.add("card");
     card.style.backgroundImage = `url(${drink.strDrinkThumb})`
-    let name = document.createElement("h2");
-    name.textContent = drink.strDrink;
-    let instructions = document.createElement("p");
-    instructions.textContent = drink.strInstructions;
+    card.innerHTML = `
+        <div class="front">
+            <h1>${drink.strDrink}</h1>
+        </div>
+        <div class="back">
+            <p>${drink.strInstructions}</p>
+        </div>
+    `
+    // let name = document.createElement("h1");
+    // name.textContent = drink.strDrink;
+    // let instructions = document.createElement("p");
+    // instructions.textContent = drink.strInstructions;
+    
     //Prepend rather than append, so that newer results always show first
     document.querySelector("#gallery").prepend(card)
     //Add content for front and back of card
-    let cardFront = document.createElement("div");
-    cardFront.classList.add("front");
-    cardFront.appendChild(name);
-    let cardBack = document.createElement("div")
-    cardBack.classList.add("back");
-    cardBack.appendChild(instructions)
-    card.appendChild(cardFront);
-    card.appendChild(cardBack);
+    // let cardFront = document.createElement("div");
+    // cardFront.classList.add("front");
+    // cardFront.appendChild(name);
+    // let cardBack = document.createElement("div")
+    // cardBack.classList.add("back");
+    // cardBack.appendChild(instructions)
+    // card.appendChild(cardFront);
+    // card.appendChild(cardBack);
+    
     //Add event listener to flip card when clicked
     card.addEventListener("click", () => {
         card.classList.toggle("flipCard");

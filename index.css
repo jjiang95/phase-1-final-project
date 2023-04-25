@@ -15,11 +15,20 @@
     transform-style:preserve-3d;
     transition:all 0.8s ease;
     border-radius:20px;
+    padding:50px, 0;
 }
 
-h2,
-p {
+.card h1 {
     color:white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-family:Century Gothic;
+    font-size:50px;
+}
+
+.card p {
+    font-size:16px;
+    font-family:Century Gothic;
 }
 
 .front {
@@ -33,9 +42,4 @@ p {
 
 .flipCard {
     transform:rotateY(180deg);
-}
-
-img {
-    width:300px;
-    position:absolute;
 }
