@@ -17,7 +17,7 @@ body {
     transition:all 0.8s ease;
     border-radius:20px;
     box-shadow:0 5px 18px rgba(0, 0, 0, 0.6);
-    display:inline-block;
+    display:inline-grid;
 
 }
 
@@ -52,19 +52,47 @@ body {
     transform:rotateY(180deg);
 }
 
-/* #gallery {
-    display:inline-block;
-} */
-
 input[type=submit] {
     background-color: black;
-    border: none;
-    border-radius:20px;
+    border:none;
+    border-radius:30px;
     color: white;
-    padding: 10px 20px;
-    text-decoration: none;
+    padding: 10px 30px;
+    text-decoration:none;
     margin:10px 2px;
     cursor:pointer;
     font-family:Century Gothic;
     font-weight:bold;
+    font-size:20px;
+    display:inline-grid;
+}
+
+input[type=text] {
+    border-radius:30px;
+    height:40px;
+    width:50%;
+    font-size:1.5rem;
+    font-family:Century Gothic;
+}
+
+#header {
+    font-family:Century Gothic;
+    color:white;
+    font-size:200%;
+    background-color: black;
+}
+
+button {
+    background-color: black;
+    border:none;
+    border-radius:30px;
+    color: white;
+    padding: 10px 30px;
+    text-decoration:none;
+    margin:10px 2px;
+    cursor:pointer;
+    font-family:Century Gothic;
+    font-weight:bold;
+    font-size:20px;
+    display:inline-grid;
 }
