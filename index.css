@@ -16,7 +16,7 @@ body {
     transform-style:preserve-3d;
     transition:all 0.8s ease;
     border-radius:20px;
-    box-shadow:0 5px 18px rgba(0, 0, 0, 0.6);
+    box-shadow:0 5spx 15px rgba(0, 0, 0, 0.6);
     display:inline-grid;
 
 }
@@ -55,7 +55,6 @@ body {
 input[type=submit] {
     background-color: black;
     border:none;
-    border-radius:30px;
     color: white;
     padding: 10px 30px;
     text-decoration:none;
@@ -68,24 +67,28 @@ input[type=submit] {
 }
 
 input[type=text] {
-    border-radius:30px;
+    margin-top:30px;
+    margin-bottom:30px;
     height:40px;
     width:50%;
-    font-size:1.5rem;
+    font-size:1.2rem;
+    font-weight:bold;
     font-family:Century Gothic;
+    text-align:left;
 }
 
-#header {
+#header h1{
     font-family:Century Gothic;
     color:white;
-    font-size:200%;
+    font-size:400%;
     background-color: black;
+    padding:20px;
+    margin:0;
 }
 
 button {
     background-color: black;
     border:none;
-    border-radius:30px;
     color: white;
     padding: 10px 30px;
     text-decoration:none;
@@ -95,4 +98,5 @@ button {
     font-weight:bold;
     font-size:20px;
     display:inline-grid;
+    margin:0;
 }

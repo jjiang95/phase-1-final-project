@@ -44,8 +44,7 @@ function createCard(drink) {
     // let cardBack = document.createElement("div")
     // cardBack.classList.add("back");
     // cardBack.appendChild(instructions)
-    // card.appendChild(cardFront);
-    // card.appendChild(cardBack);
+    // card.append(cardFront, cardBack);
     
     //Add event listener to flip card when clicked
     card.addEventListener("click", () => {
