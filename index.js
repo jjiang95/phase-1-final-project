@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let form = document.querySelector("form");
+    const form = document.querySelector("form");
     //When form is submitted, a fetch request is made to the API 
     //to retrieve elements from the database depending on search-text input
     form.addEventListener("submit", (e) => {
@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         // form.reset();
     })
+    const button = document.querySelector("button");
+    button.addEventListener("click", () => {
+        document.querySelector("#gallery").innerHTML = ``;
+    }) 
 })
 
 function createCard(drink) {
