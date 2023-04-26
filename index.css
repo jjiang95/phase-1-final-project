@@ -55,3 +55,16 @@ body {
 /* #gallery {
     display:inline-block;
 } */
+
+input[type=submit] {
+    background-color: black;
+    border: none;
+    border-radius:20px;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin:10px 2px;
+    cursor:pointer;
+    font-family:Century Gothic;
+    font-weight:bold;
+}
