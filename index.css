@@ -16,7 +16,7 @@ body {
     transform-style:preserve-3d;
     transition:all 0.8s ease;
     border-radius:20px;
-    box-shadow:0 5spx 15px rgba(0, 0, 0, 0.6);
+    box-shadow:0 5px 18px rgba(0, 0, 0, 0.6);
     display:inline-grid;
 
 }
