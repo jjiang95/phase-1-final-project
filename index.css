@@ -9,13 +9,9 @@ body {
 
 .card {
     border-style:solid;
-    /* margin-left:28px;
-    margin-bottom:20px;
-    margin-top:20px; */
-    position:relative;
-    margin:20px;
+    margin:2%;
     width:300px;
-    height:400px;
+    height:470px;
     background-size:cover;
     transform-style:preserve-3d;
     transition:all 0.8s ease;
@@ -27,8 +23,7 @@ body {
 
 .card h1 {
     color:white;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: black;
+    text-shadow: 1.5px 1.5px red;
     font-family:Century Gothic;
     font-size:40px;
 }
@@ -56,3 +51,7 @@ body {
 .flipCard {
     transform:rotateY(180deg);
 }
+
+/* #gallery {
+    display:inline-block;
+} */
