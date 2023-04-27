@@ -36,7 +36,7 @@ function createCard(drink) {
             <h1>${drink.strDrink}</h1>
         </div>
         <div class="back">
-            <p>${extractIngredients(drink)}</p>
+            <p>${extractIngredientsIntoString(drink)}</p>
             <br/>
             <p>${drink.strInstructions}</p>
         </div>
@@ -63,22 +63,26 @@ function createCard(drink) {
     })
 }
 
-//Extract ingredients and measurements into a string
-function extractIngredients(drink) {
+function extractIngredientsIntoString(drink) {
+    //The ingredient and measurement values are always at these indices in the drink object
+    //But they vary in number for each recipe, so the empty keys must be filtered out
     const ingredients = Object.values(drink).splice(17, 15).filter(x => x !== null || "");
     const measurements = Object.values(drink).splice(32, 15).filter(x => x !== null || "");
     const finalObject = {}
     let ingredientsString = "";
+    //Fill the finalObject with keys(the ingredients) and their corresponding values (measurements)
     for (let i=0; i < ingredients.length;i++) {
         finalObject[`${ingredients[i]}`] = `${measurements[i]}`;
     }
     for (const key in finalObject) {
+        //If there is no measurement available for an ingredient, the key's value is emptied so that
+        //it doesn't display
         if (finalObject[key] === "undefined") {
             finalObject[key] = "";
         }
         ingredientsString += `${finalObject[key]} ${key}, `
     };
-    let fixedIngredientsString = ingredientsString.substring(0, ingredientsString.length - 2)
-    return fixedIngredientsString;
+    //Remove comma and space at the end of the ingredients string
+    return ingredientsString.substring(0, ingredientsString.length - 2)
 
 }
