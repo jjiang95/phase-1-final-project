@@ -36,6 +36,8 @@ function createCard(drink) {
             <h1>${drink.strDrink}</h1>
         </div>
         <div class="back">
+            <p>${extractIngredients(drink)}</p>
+            <br/>
             <p>${drink.strInstructions}</p>
         </div>
     `
@@ -59,4 +61,24 @@ function createCard(drink) {
     card.addEventListener("click", () => {
         card.classList.toggle("flipCard");
     })
+}
+
+//Extract ingredients and measurements into a string
+function extractIngredients(drink) {
+    const ingredients = Object.values(drink).splice(17, 15).filter(x => x !== null || "");
+    const measurements = Object.values(drink).splice(32, 15).filter(x => x !== null || "");
+    const finalObject = {}
+    let ingredientsString = "";
+    for (let i=0; i < ingredients.length;i++) {
+        finalObject[`${ingredients[i]}`] = `${measurements[i]}`;
+    }
+    for (const key in finalObject) {
+        if (finalObject[key] === "undefined") {
+            finalObject[key] = "";
+        }
+        ingredientsString += `${finalObject[key]} ${key}, `
+    };
+    let fixedIngredientsString = ingredientsString.substring(0, ingredientsString.length - 2)
+    return fixedIngredientsString;
+
 }
