@@ -6,7 +6,7 @@ Welcome to my final project of Phase 1 at Flatiron Software Development Bootcamp
 
 # Usage
 
-Simply enter a search term in the search bar (cocktail name OR type of booze) and press "submit". Then click on the card(s) that populate to reveal ingredients, measurements, and mixing instructions. Click "clear gallery" to reset the DOM and remove all cards.
+Simply enter a search term in either search bar (cocktail name OR ingredient) and press "submit". Then click on the card(s) that populate to reveal ingredients, measurements, and mixing instructions. Click "clear gallery" to reset the DOM and remove all cards.
 
 # Contributing
 

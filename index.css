@@ -20,6 +20,7 @@ body {
     box-shadow:0 5px 18px rgba(0, 0, 0, 0.6);
     display:inline-grid;
 
+
 }
 
 .card:hover {
@@ -29,7 +30,7 @@ body {
 
 .card h1 {
     color:white;
-    text-shadow: 1.5px 1.5px red;
+    text-shadow: 2px 2px red;
     font-size:40px;
 }
 
@@ -40,6 +41,7 @@ body {
     width:270px;
     margin:auto;
     text-shadow: 1.5px 1.5px red;
+    padding:5px;    
 }
 
 .front {
@@ -50,6 +52,7 @@ body {
 .back {
     backface-visibility:hidden;
     transform:rotateY(180deg);
+    overflow-y:auto;
 }
 
 .flipCard {
