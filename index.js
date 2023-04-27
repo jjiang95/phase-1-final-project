@@ -12,12 +12,20 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         // form.reset();
     })
-    const button = document.querySelector("button");
-    button.addEventListener("click", () => {
+    const button1 = document.querySelector("#clear-gallery");
+    button1.addEventListener("click", () => {
         document.querySelector("#gallery").innerHTML = ``;
     }) 
+    
+    const button2 = document.querySelector("#random");
+    button2.addEventListener("click", (e) => {
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+        .then(resp => resp.json())
+        .then(json => {
+            json.drinks.forEach(drink => createCard(drink))
+        });    
+    })
 })
-
 function createCard(drink) {
     const card = document.createElement("div")
     card.classList.add("card");

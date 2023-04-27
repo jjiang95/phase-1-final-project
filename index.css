@@ -24,6 +24,7 @@ body {
 
 .card:hover {
     border-color:red;
+    cursor:pointer;
 }
 
 .card h1 {
@@ -92,10 +93,8 @@ button {
     color: white;
     padding: 10px 30px;
     text-decoration:none;
-    margin:10px 2px;
     cursor:pointer;
     font-weight:bold;
     font-size:20px;
-    display:inline-grid;
-    margin:0;
+
 }
