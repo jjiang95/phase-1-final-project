@@ -67,6 +67,7 @@ input[type=submit] {
     font-weight:bold;
     font-size:20px;
     display:inline-grid;
+    transition-duration:0.2s;
 }
 
 input[type=text] {
@@ -96,5 +97,11 @@ button {
     cursor:pointer;
     font-weight:bold;
     font-size:20px;
+    transition-duration:0.2s
 
+}
+
+button:hover,
+input[type=submit]:hover {
+    background-color:red;
 }

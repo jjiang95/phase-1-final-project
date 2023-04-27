@@ -12,11 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         // form.reset();
     })
+    //Clear the DOM of all search results
     const button1 = document.querySelector("#clear-gallery");
     button1.addEventListener("click", () => {
         document.querySelector("#gallery").innerHTML = ``;
     }) 
-    
+    //Generate a random cocktail from the API
     const button2 = document.querySelector("#random");
     button2.addEventListener("click", (e) => {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
