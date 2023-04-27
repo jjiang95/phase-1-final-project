@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
+    const form1 = document.querySelector("#by-name");
     //When form is submitted, a fetch request is made to the API 
     //to retrieve elements from the database depending on search-text input
-    form.addEventListener("submit", (e) => {
+    form1.addEventListener("submit", (e) => {
         e.preventDefault();
         let searchText = e.target.children[0].value;
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchText}`)
@@ -10,8 +10,29 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(json => {
             json.drinks.forEach(drink => createCard(drink)) //Create a formatted card for each result fetched
         })
-        // form.reset();
+        form1.reset();
     })
+
+    const form2 = document.querySelector("#by-ingredient");
+    form2.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let searchText = e.target.children[0].value;
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchText}`)
+        .then(resp => resp.json())
+        //The 'lookup by ingredient' feature in the API only returns a name, a picture, and an ID
+        //and doesn't return ingredients or instructions
+        //So I had to chain on another fetch request to look up the cocktail by that ID via the 'lookup by ID' feature
+        //and retrieve the rest of the data
+        .then(json => {
+            json.drinks.forEach(drink => {
+                fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drink.idDrink}`)
+                .then(resp => resp.json())
+                .then(json => json.drinks.forEach(drink => createCard(drink)))
+            })
+        })
+        form2.reset();
+    })
+
     //Clear the DOM of all search results
     const button1 = document.querySelector("#clear-gallery");
     button1.addEventListener("click", () => {
