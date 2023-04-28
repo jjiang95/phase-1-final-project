@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         form1.reset();
     })
+
     const form2 = document.querySelector("#by-ingredient");
     //Same mechanic as form1, but using a different search feature of the API
     form2.addEventListener("submit", (e) => {
@@ -21,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(resp => resp.json())
         //The 'lookup by ingredient' feature in the API only returns a name, a picture, and an ID
         //and doesn't return ingredients or instructions
-        //So I had to chain on another fetch request to look up the cocktail by that ID via the 'lookup by ID' feature
-        //and retrieve the data I need
+        //So another fetch request is chained on to look up the cocktail by that ID via the 'lookup by ID' feature
+        //to retrieve the data needed
         .then(json => {
             json.drinks.forEach(drink => {
                 fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drink.idDrink}`)
@@ -32,14 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         form2.reset();
     })
+
     //Clear the DOM of all search results
     const button1 = document.querySelector("#clear-gallery");
     button1.addEventListener("click", () => {
         document.querySelector("#gallery").innerHTML = ``;
     }) 
+
     //Generate a random cocktail from the API
     const button2 = document.querySelector("#random");
-    button2.addEventListener("click", (e) => {
+    button2.addEventListener("click", () => {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
         .then(resp => resp.json())
         .then(json => {

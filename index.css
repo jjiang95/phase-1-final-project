@@ -19,8 +19,6 @@ body {
     border-radius:20px;
     box-shadow:0 5px 18px rgba(0, 0, 0, 0.6);
     display:inline-grid;
-
-
 }
 
 .card:hover {
