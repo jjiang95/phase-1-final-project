@@ -106,5 +106,4 @@ function extractIngredientsIntoString(drink) {
 
     //Remove comma and space at the end of the ingredients string
     return ingredientsString.substring(0, ingredientsString.length - 2)
-
 }
