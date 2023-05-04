@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let searchText = e.target.children[0].value;
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchText}`)
         .then(resp => resp.json())
-        .then(json => {
-            json.drinks.forEach(drink => createCard(drink));
+        .then(drinksCollection => {
+            drinksCollection.drinks.forEach(drink => createCard(drink));
         })
         form1.reset();
     })
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             json.drinks.forEach(drink => {
                 fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drink.idDrink}`)
                 .then(resp => resp.json())
-                .then(json => json.drinks.forEach(drink => createCard(drink)))
+                .then(drinksCollection => drinksCollection.drinks.forEach(drink => createCard(drink)))
             })
         })
         form2.reset();
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     button2.addEventListener("click", () => {
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
         .then(resp => resp.json())
-        .then(json => {
-            json.drinks.forEach(drink => createCard(drink))
+        .then(drinksCollection => {
+            drinksCollection.drinks.forEach(drink => createCard(drink))
         });    
     })
 })
@@ -84,19 +84,19 @@ function extractIngredientsIntoString(drink) {
     //But their number varies for each recipe, so the empty values must be filtered out
     const ingredients = Object.values(drink).splice(17, 15).filter(x => x !== null || "");
     const measurements = Object.values(drink).splice(32, 15).filter(x => x !== null || "");
-    const finalObject = {}
+    const ingredientsObject = {}
     let ingredientsString = "";
-    //Fill the finalObject with keys (the ingredients) and their corresponding values (measurements)
+    //Fill the ingredientsObject with keys (the ingredients) and their corresponding values (measurements)
     for (let i=0; i < ingredients.length;i++) {
-        finalObject[`${ingredients[i]}`] = `${measurements[i]}`;
+        ingredientsObject[`${ingredients[i]}`] = `${measurements[i]}`;
     }
 
-    for (const key in finalObject) {
+    for (const key in ingredientsObject) {
         //If there is no measurement available for an ingredient, the key's value is emptied so that it doesn't display
-        if (finalObject[key] === "undefined") {
-            finalObject[key] = "";
+        if (ingredientsObject[key] === "undefined") {
+            ingredientsObject[key] = "";
         }
-        ingredientsString += `${finalObject[key]} ${key}, `;
+        ingredientsString += `${ingredientsObject[key]} ${key}, `;
     }
 
     //Remove comma and space at the end of the ingredients string
