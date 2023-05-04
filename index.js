@@ -52,31 +52,36 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function createCard(drink) {
-    const card = document.createElement("div")    
-    const cardFront = document.createElement("div");    
-    const cardBack = document.createElement("div")
-    
+    const card = document.createElement("div")      
     card.classList.add("card");    
-    card.style.backgroundImage = `url(${drink.strDrinkThumb})`
-    cardFront.classList.add("front");    
-    cardBack.classList.add("back");
-    
-    const name = document.createElement("h1");
-    name.textContent = drink.strDrink;
-    const instructions = document.createElement("p");
-    instructions.textContent = drink.strInstructions;
-    const measurements = document.createElement("p");
-    measurements.textContent = extractIngredientsIntoString(drink);
-
-    card.append(cardFront, cardBack);
-    cardFront.appendChild(name)
-    cardBack.appendChild(measurements);
-    cardBack.appendChild(instructions);
-    document.querySelector("#gallery").prepend(card)
+    card.style.backgroundImage = `url(${drink.strDrinkThumb})`;  
+    card.append(createCardFront(drink), createCardBack(drink));  
     
     card.addEventListener("click", () => {
         card.classList.toggle("flipCard");
     })
+    
+    document.querySelector("#gallery").prepend(card)
+}
+
+function createCardFront(drink) {
+    const cardFront = document.createElement("div");    
+    cardFront.classList.add("front");    
+    const name = document.createElement("h1");
+    name.textContent = drink.strDrink;      
+    cardFront.appendChild(name)
+    return cardFront;
+}
+
+function createCardBack(drink) {
+    const cardBack = document.createElement("div");
+    cardBack.classList.add("back");
+    const instructions = document.createElement("p");
+    instructions.textContent = drink.strInstructions;
+    const measurements = document.createElement("p");
+    measurements.textContent = extractIngredientsIntoString(drink);
+    cardBack.append(measurements, instructions);
+    return cardBack;
 }
 
 function extractIngredientsIntoString(drink) {
