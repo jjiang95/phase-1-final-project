@@ -6,7 +6,7 @@ Welcome to my final project of Phase 1 at Flatiron Software Development Bootcamp
 
 # Installation
 
-Fork this repository into local directory and open the index.html file in chosen web browser.
+Clone this repository into local directory and open the index.html file in chosen web browser.
 
 # Usage
 

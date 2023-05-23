@@ -87,8 +87,8 @@ function createCardBack(drink) {
 function extractIngredientsIntoString(drink) {
     //The ingredient and measurement values are always at these indices in the drink object
     //But their number varies for each recipe, so the empty values must be filtered out
-    const ingredients = Object.values(drink).splice(17, 15).filter(x => x !== null || "");
-    const measurements = Object.values(drink).splice(32, 15).filter(x => x !== null || "");
+    const ingredients = Object.values(drink).splice(17, 15).filter(x => x !== null);
+    const measurements = Object.values(drink).splice(32, 15).filter(x => x !== null);
     const ingredientsObject = {}
     let ingredientsString = "";
     //Fill the ingredientsObject with keys (the ingredients) and their corresponding values (measurements)
